@@ -1,0 +1,9 @@
+<div class="app {{ theme$ | async }}">
+  <h1>A sample angular theme</h1>
+
+  <p>Current Theme: {{ theme$ | async }}</p>
+  <select (ngModelChange)="onChange($event)" [ngModel]="theme$ | async">
+    <option value="light-theme">Light Theme</option>
+    <option value="dark-theme">Dark Theme</option>
+  </select>
+</div>

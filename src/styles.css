@@ -1,0 +1,37 @@
+/* Add application styles & imports to this file! */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  margin: 1rem 0;
+}
+p {
+  margin: 0.8rem 0;
+}
+
+.app.light-theme {
+  --text-color: #222;
+  --bkg-color: #fff;
+  --btn-txt-color: white;
+  --btn-bg-color: rgb(11, 88, 160);
+}
+
+.app.dark-theme {
+  --text-color: #eee;
+  --bkg-color: #252222;
+  --btn-txt-color: rgb(46, 43, 43);
+  --btn-bg-color: rgb(20, 211, 195);
+}
+
+.app {
+  padding: 1rem;
+  background: var(--bkg-color);
+}
+
+h1,
+p {
+  color: var(--text-color);
+}
