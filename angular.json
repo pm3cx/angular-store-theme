@@ -18,12 +18,19 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/app/themes/dark-theme.scss",
+                "bundleName": "dark-theme",
+                "inject": false
+              },
+              {
+                "input": "src/app/themes/light-theme.scss",
+                "bundleName": "light-theme",
+                "inject": false
+              }
             ],
             "scripts": []
           },
@@ -72,25 +79,27 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "styles.scss"
+              "styles.scss",
+              {
+                "input": "src/app/themes/dark-theme.scss",
+                "bundleName": "dark-theme",
+                "inject": false
+              },
+              {
+                "input": "src/app/themes/light-theme.scss",
+                "bundleName": "light-theme",
+                "inject": false
+              }
             ],
             "scripts": [],
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ]
+            "assets": ["src/favicon.ico", "src/assets"]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
