@@ -17,5 +17,6 @@ import { AppState } from './store/app.state';
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
+  providers: [],
 })
 export class AppModule {}
