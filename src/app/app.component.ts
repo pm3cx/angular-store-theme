@@ -7,7 +7,6 @@ import { AppState } from './store/app.state';
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   @Select(AppState.theme) theme$: Observable<string>; // select the theme selector that w've create on the app.state.ts
