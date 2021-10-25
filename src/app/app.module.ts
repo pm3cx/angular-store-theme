@@ -1,10 +1,15 @@
-import { NgModule } from '@angular/core';
+import { INJECTOR, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { AppState } from './store/app.state';
+import { DOCUMENT } from '@angular/common';
+import {
+  ThemeFactoryService,
+  ThemeService,
+} from './core/services/theme.service';
 
 // More info for NGXS store: https://www.ngxs.io/concepts/store
 
@@ -17,6 +22,12 @@ import { AppState } from './store/app.state';
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
-  providers: [],
+  providers: [
+    {
+      provide: ThemeService,
+      useFactory: ThemeFactoryService,
+      deps: [DOCUMENT, INJECTOR],
+    },
+  ],
 })
 export class AppModule {}

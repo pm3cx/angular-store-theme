@@ -1,25 +1,23 @@
-import { AfterContentInit, Component, Inject } from '@angular/core';
+import { AfterViewInit, Component, Inject } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { App } from './store/app.action';
 import { AppState } from './store/app.state';
-import { DOCUMENT } from '@angular/common';
+import { ThemeService } from './core/services/theme.service';
 
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
 })
-export class AppComponent implements AfterContentInit {
+export class AppComponent implements AfterViewInit {
   @Select(AppState.theme) theme$: Observable<string>; // select the theme selector that w've create on the app.state.ts
 
-  constructor(
-    private store: Store,
-    @Inject(DOCUMENT) private document: Document
-  ) {}
+  constructor(private store: Store, private themeService: ThemeService) {}
 
-  ngAfterContentInit(): void {
-    const head = this.document.getElementsByTagName('head')[0];
-    console.log(head);
+  ngAfterViewInit(): void {
+    this.theme$.subscribe((res) =>
+      this.themeService.addCustomProperties({ id: 'theme', href: res + '.css' })
+    );
   }
 
   onChange(event: string): void {
